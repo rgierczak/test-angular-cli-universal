@@ -10,12 +10,12 @@ import { AppComponent } from './app.component';
         AppComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({appId: 'cli-universal-demo'}),
         FormsModule,
         HttpModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+
+export class AppModule {}
