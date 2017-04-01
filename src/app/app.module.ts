@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { BlogComponent } from './blog/blog.component';
+import { AppService } from './app.service';
 
 @NgModule({
     imports: [
@@ -18,9 +20,10 @@ import { HomeComponent } from './home/home.component';
     declarations: [
         AppComponent,
         ContactComponent,
-        HomeComponent
+        HomeComponent,
+        BlogComponent
     ],
-    providers: [],
+    providers: [AppService],
     bootstrap: [AppComponent]
 })
 

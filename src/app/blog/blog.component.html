@@ -1,0 +1,9 @@
+<h1>Our Blog</h1>
+<hr>
+
+<article *ngFor="let post of posts">
+    <h2>{{ post.title }}</h2>
+    <div>
+        <p [innerHtml]>{{ post.content }}</p>
+    </div>
+</article>
