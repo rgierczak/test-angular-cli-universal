@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../services/app.service';
 import { Observable } from 'rxjs/Rx';
+import { Post } from '../../interfaces/post';
 
 @Component({
     selector: 'app-blog',
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs/Rx';
 })
 
 export class BlogComponent implements OnInit {
-    posts = [];
+    posts: Post[] = [];
 
     constructor(private appService: AppService) {}
 

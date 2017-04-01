@@ -1,4 +1,4 @@
-# TestAngularCliUniversal
+# test-angular-cli-universal
 
 > This is the test application as a proof of concept for angular server side rendering.
 
