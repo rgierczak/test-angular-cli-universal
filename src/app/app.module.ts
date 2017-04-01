@@ -5,15 +5,15 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
-import { AppService } from './app.service';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { AppService } from './services/app.service';
 
 @NgModule({
     imports: [
         AppRoutingModule,
-        BrowserModule.withServerTransition({appId: 'cli-universal-demo'}),
+        BrowserModule.withServerTransition({appId: 'test-angular-cli-universal'}),
         FormsModule,
         HttpModule
     ],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
+import { AppService } from '../../services/app.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
