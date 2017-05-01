@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpModule } from '@angular/http';
+import { AppService } from '../../services/app.service';
 import { BlogComponent } from './blog.component';
 
 describe('BlogComponent', () => {
@@ -8,7 +9,15 @@ describe('BlogComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-                declarations: [BlogComponent]
+                imports: [
+                    HttpModule
+                ],
+                declarations: [
+                    BlogComponent
+                ],
+                providers: [
+                    AppService
+                ]
             })
             .compileComponents();
     }));
