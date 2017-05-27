@@ -12,7 +12,8 @@ import { Post } from '../../interfaces/post';
 export class BlogComponent implements OnInit {
     posts: Post[] = [];
 
-    constructor(private appService: AppService) {}
+    constructor(private appService: AppService) {
+    }
 
     ngOnInit() {
         this.appService
