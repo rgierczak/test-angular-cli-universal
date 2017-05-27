@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class AppService {
-    apiUrl = 'http://localhost:4000/assets/mocks';
+    apiUrl = 'http://localhost:4200/assets/mocks';
     headers: Headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) {
