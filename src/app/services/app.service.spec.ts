@@ -9,9 +9,8 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 
 import { AppService } from './app.service';
-import { Post } from '../interfaces/post';
 
-const getMockedPosts = (): Post[] => {
+const getMockedData = (): Object[] => {
     return [{
         'content': 'test content',
         'title': 'test title',
@@ -59,24 +58,24 @@ describe('AppService', () => {
     describe('makeRequest', () => {
         let backend: MockBackend;
         let service: AppService;
-        let posts: Post[];
+        let mockedData: Object[];
         const url = 'http://mock-address.com';
 
         beforeEach(inject([Http, XHRBackend],
             (http: Http, mockBackend: MockBackend) => {
                 backend = mockBackend;
                 service = new AppService(http);
-                posts = getMockedPosts();
+                mockedData = getMockedData();
             }));
 
-        it('should have expected fake posts', async(inject([], () => {
+        it('should have expected mocked data', async(inject([], () => {
             backend
                 .connections
                 .subscribe(
                     (connection: MockConnection) => {
                         const mockResponseOptions = new ResponseOptions({
                             status: 200,
-                            body: posts
+                            body: mockedData
                         });
                         const mockResponse = new Response(mockResponseOptions);
                         connection.mockRespond(mockResponse);
@@ -86,7 +85,7 @@ describe('AppService', () => {
                 .makeRequest(url)
                 .subscribe(
                     (resp) => {
-                        expect(resp.length).toEqual(posts.length);
+                        expect(resp.length).toEqual(mockedData.length);
                     });
         })));
 
