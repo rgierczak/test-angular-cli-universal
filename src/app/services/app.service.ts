@@ -11,20 +11,13 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AppService {
-    static checkStatus(response: Response) {
+    static handleResponse(response: Response): Object[] {
         const status = response.status;
-
-        if (!status) {
-            return;
-        }
 
         if (status < 200 || status >= 300) {
             throw new Error('Bad response status: ' + status);
         }
-    }
 
-    static handleResponse(response: Response): Object[] {
-        AppService.checkStatus(response);
         return response.json() || {};
     }
 
