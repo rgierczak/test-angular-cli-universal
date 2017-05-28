@@ -3,12 +3,13 @@ import { AppService } from '../../services/app.service';
 import { Observable } from 'rxjs/Rx';
 import { Post } from '../../interfaces/post';
 
+const url = 'http://localhost:4200/assets/mocks/blog.json';
+
 @Component({
     selector: 'app-blog',
     templateUrl: './blog.component.html',
     styleUrls: ['./blog.component.scss']
 })
-
 export class BlogComponent implements OnInit {
     posts: Post[] = [];
 
@@ -17,10 +18,14 @@ export class BlogComponent implements OnInit {
 
     ngOnInit() {
         this.appService
-            .getBlogPosts()
+            .makeRequest(url)
             .subscribe(
-                (posts) => this.onSuccess(posts),
-                (error) => this.onError(error)
+                (posts) => {
+                    this.onSuccess(posts);
+                },
+                (error) => {
+                    this.onError(error);
+                }
             );
     }
 
@@ -29,7 +34,6 @@ export class BlogComponent implements OnInit {
     }
 
     onError(error) {
-        console.log(error);
-        Observable.throw(error);
+        return Observable.throw(error);
     }
 }
